@@ -1,0 +1,1 @@
+# [toastr.js](http://codeseven.github.io/toastr/) for Laravel 5.*
