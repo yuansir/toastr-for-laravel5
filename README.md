@@ -33,5 +33,5 @@ Use these methods in controllers:
 
 ## Config
 
-set the toaster options in **app/config/toastr.php** , available options => [toastr.js demo](http://codeseven.github.io/toastr/demo.html)
+set the toaster options in **config/toastr.php** , available options => [toastr.js demo](http://codeseven.github.io/toastr/demo.html)
 
