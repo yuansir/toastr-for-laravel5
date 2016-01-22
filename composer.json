@@ -7,5 +7,10 @@
             "email": "yuansir@live.cn"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Yuansir\\Toastr\\": "src/"
+        }
+    }
 }
