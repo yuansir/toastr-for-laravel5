@@ -1,4 +1,6 @@
-<?php namespace Yuansir\Toastr;
+<?php
+
+namespace Yuansir\Toastr;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -11,10 +13,10 @@ class ToastrServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__ . '/views', 'Toastr');
+        $this->loadViewsFrom(__DIR__.'/views', 'Toastr');
 
         $this->publishes([
-            __DIR__.'/views' => base_path('resources/views/vendor/toastr'),
+            __DIR__.'/views'             => base_path('resources/views/vendor/toastr'),
             __DIR__.'/config/toastr.php' => config_path('toastr.php'),
         ]);
     }

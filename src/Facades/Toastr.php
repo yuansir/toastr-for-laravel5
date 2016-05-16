@@ -1,4 +1,6 @@
-<?php namespace Yuansir\Toastr\Facades;
+<?php
+
+namespace Yuansir\Toastr\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
