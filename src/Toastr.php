@@ -1,7 +1,9 @@
-<?php namespace Yuansir\Toastr;
+<?php
 
-use Illuminate\Session\SessionManager;
+namespace Yuansir\Toastr;
+
 use Illuminate\Config\Repository;
+use Illuminate\Session\SessionManager;
 
 class Toastr
 {
@@ -22,8 +24,9 @@ class Toastr
 
     /**
      * Toastr constructor.
+     *
      * @param SessionManager $session
-     * @param Repository $config
+     * @param Repository     $config
      */
     public function __construct(SessionManager $session, Repository $config)
     {
@@ -35,7 +38,7 @@ class Toastr
     {
         $notifications = $this->session->get('toastr:notifications');
 
-        if(!$notifications) {
+        if (!$notifications) {
             return '';
         }
 
@@ -43,12 +46,12 @@ class Toastr
             $config = $this->config->get('toastr.options');
             $javascript = '';
             $options = [];
-            if($config) {
+            if ($config) {
                 $options = array_merge($config, $notification['options']);
             }
 
-            if($options) {
-                $javascript = 'toastr.options = ' . json_encode($options) . ';';
+            if ($options) {
+                $javascript = 'toastr.options = '.json_encode($options).';';
             }
 
             $message = str_replace("'", "\\'", $notification['message']);
@@ -60,33 +63,36 @@ class Toastr
     }
 
     /**
-     * Add notification
+     * Add notification.
+     *
      * @param $type
      * @param $message
-     * @param null $title
+     * @param null  $title
      * @param array $options
+     *
      * @return bool
      */
     public function add($type, $message, $title = null, $options = [])
     {
         $types = ['info', 'warning', 'success', 'error'];
-        if(!in_array($type, $types)) {
+        if (!in_array($type, $types)) {
             return false;
         }
 
         $this->notifications[] = [
-            'type' => $type,
-            'title' => $title,
+            'type'    => $type,
+            'title'   => $title,
             'message' => $message,
-            'options' => $options
+            'options' => $options,
         ];
         $this->session->flash('toastr:notifications', $this->notifications);
     }
 
     /**
-     * Add info notification
+     * Add info notification.
+     *
      * @param $message
-     * @param null $title
+     * @param null  $title
      * @param array $options
      */
     public function info($message, $title = null, $options = [])
@@ -95,9 +101,10 @@ class Toastr
     }
 
     /**
-     * Add warning notification
+     * Add warning notification.
+     *
      * @param $message
-     * @param null $title
+     * @param null  $title
      * @param array $options
      */
     public function warning($message, $title = null, $options = [])
@@ -106,9 +113,10 @@ class Toastr
     }
 
     /**
-     * Add success notification
+     * Add success notification.
+     *
      * @param $message
-     * @param null $title
+     * @param null  $title
      * @param array $options
      */
     public function success($message, $title = null, $options = [])
@@ -117,9 +125,10 @@ class Toastr
     }
 
     /**
-     * Add error notification
+     * Add error notification.
+     *
      * @param $message
-     * @param null $title
+     * @param null  $title
      * @param array $options
      */
     public function error($message, $title = null, $options = [])
@@ -128,7 +137,7 @@ class Toastr
     }
 
     /**
-     * Clear notifications
+     * Clear notifications.
      */
     public function clear()
     {
