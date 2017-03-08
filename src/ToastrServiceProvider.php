@@ -14,13 +14,13 @@ class ToastrServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__.'/views', 'Toastr');
-
+        
         $this->publishes([
             __DIR__.'/views'             => base_path('resources/views/vendor/toastr'),
             __DIR__.'/config/toastr.php' => config_path('toastr.php'),
         ]);
     }
-
+    
     /**
      * Register the application services.
      *
@@ -28,11 +28,11 @@ class ToastrServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['toastr'] = $this->app->share(function ($app) {
+        $this->app->singleton('toastr',function ($app) {
             return new Toastr($app['session'], $app['config']);
         });
     }
-
+    
     /**
      * Get the services provided by the provider.
      *
