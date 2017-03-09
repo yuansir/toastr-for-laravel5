@@ -30,7 +30,7 @@ class ToastrServiceProvider extends ServiceProvider
     {
         $this->app->singleton('toastr', (function ($app) {
             return new Toastr($app['session'], $app['config']);
-        });
+        }));
     }
 
     /**
