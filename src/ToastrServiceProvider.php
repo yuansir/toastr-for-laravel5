@@ -28,7 +28,7 @@ class ToastrServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('toastr', (function ($app) {
+        $this->app->singleton('toastr', function ($app) {
             return new Toastr($app['session'], $app['config']);
         });
     }
