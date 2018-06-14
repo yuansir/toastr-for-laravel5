@@ -1,4 +1,4 @@
-# [toastr.js](http://codeseven.github.io/toastr/) for Laravel 5.* （laravel5.4 一下使用，5.5+后没有维护了）
+# [toastr.js](http://codeseven.github.io/toastr/) for Laravel 5.* （laravel5.4 以下适用，5.5+后没有维护了）
 
 
 
